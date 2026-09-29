@@ -1,0 +1,621 @@
+{
+  "name": "Wazuh Agent",
+  "publisher": "Wazuh, Inc.",
+  "appName": "Wazuh Agent",
+  "bundleId": "com.wazuh.agent",
+  "lastModified": "2026-09-28T20:38:44Z",
+  "currentVersion": "4.14.8",
+  "id": "WazuhAgent",
+  "requirements": [
+    {
+      "and": true,
+      "name": "wazuh-agent-version",
+      "operator": "is not",
+      "value": "Not Installed",
+      "type": "extensionAttribute"
+    }
+  ],
+  "patches": [
+    {
+      "version": "4.14.8",
+      "releaseDate": "2026-09-25T00:00:00Z",
+      "standalone": true,
+      "minimumOperatingSystem": "10.15",
+      "reboot": false,
+      "killApps": [],
+      "components": [
+        {
+          "name": "Wazuh Agent",
+          "version": "4.14.8",
+          "criteria": [
+            {
+              "and": true,
+              "name": "wazuh-agent-version",
+              "operator": "is",
+              "value": "4.14.8",
+              "type": "extensionAttribute"
+            }
+          ]
+        }
+      ],
+      "capabilities": [
+        {
+          "and": true,
+          "name": "Operating System Version",
+          "operator": "greater than or equal",
+          "value": "10.15",
+          "type": "recon"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "version": "4.14.7",
+      "releaseDate": "2026-07-29T00:00:00Z",
+      "standalone": true,
+      "minimumOperatingSystem": "10.15",
+      "reboot": false,
+      "killApps": [],
+      "components": [
+        {
+          "name": "Wazuh Agent",
+          "version": "4.14.7",
+          "criteria": [
+            {
+              "and": true,
+              "name": "wazuh-agent-version",
+              "operator": "is",
+              "value": "4.14.7",
+              "type": "extensionAttribute"
+            }
+          ]
+        }
+      ],
+      "capabilities": [
+        {
+          "and": true,
+          "name": "Operating System Version",
+          "operator": "greater than or equal",
+          "value": "10.15",
+          "type": "recon"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "version": "4.14.6",
+      "releaseDate": "2026-07-01T00:00:00Z",
+      "standalone": true,
+      "minimumOperatingSystem": "10.15",
+      "reboot": false,
+      "killApps": [],
+      "components": [
+        {
+          "name": "Wazuh Agent",
+          "version": "4.14.6",
+          "criteria": [
+            {
+              "and": true,
+              "name": "wazuh-agent-version",
+              "operator": "is",
+              "value": "4.14.6",
+              "type": "extensionAttribute"
+            }
+          ]
+        }
+      ],
+      "capabilities": [
+        {
+          "and": true,
+          "name": "Operating System Version",
+          "operator": "greater than or equal",
+          "value": "10.15",
+          "type": "recon"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "version": "4.14.5",
+      "releaseDate": "2026-04-23T00:00:00Z",
+      "standalone": true,
+      "minimumOperatingSystem": "10.15",
+      "reboot": false,
+      "killApps": [],
+      "components": [
+        {
+          "name": "Wazuh Agent",
+          "version": "4.14.5",
+          "criteria": [
+            {
+              "and": true,
+              "name": "wazuh-agent-version",
+              "operator": "is",
+              "value": "4.14.5",
+              "type": "extensionAttribute"
+            }
+          ]
+        }
+      ],
+      "capabilities": [
+        {
+          "and": true,
+          "name": "Operating System Version",
+          "operator": "greater than or equal",
+          "value": "10.15",
+          "type": "recon"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "version": "4.14.4",
+      "releaseDate": "2026-03-17T00:00:00Z",
+      "standalone": true,
+      "minimumOperatingSystem": "10.15",
+      "reboot": false,
+      "killApps": [],
+      "components": [
+        {
+          "name": "Wazuh Agent",
+          "version": "4.14.4",
+          "criteria": [
+            {
+              "and": true,
+              "name": "wazuh-agent-version",
+              "operator": "is",
+              "value": "4.14.4",
+              "type": "extensionAttribute"
+            }
+          ]
+        }
+      ],
+      "capabilities": [
+        {
+          "and": true,
+          "name": "Operating System Version",
+          "operator": "greater than or equal",
+          "value": "10.15",
+          "type": "recon"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "version": "4.14.3",
+      "releaseDate": "2026-02-11T00:00:00Z",
+      "standalone": true,
+      "minimumOperatingSystem": "10.15",
+      "reboot": false,
+      "killApps": [],
+      "components": [
+        {
+          "name": "Wazuh Agent",
+          "version": "4.14.3",
+          "criteria": [
+            {
+              "and": true,
+              "name": "wazuh-agent-version",
+              "operator": "is",
+              "value": "4.14.3",
+              "type": "extensionAttribute"
+            }
+          ]
+        }
+      ],
+      "capabilities": [
+        {
+          "and": true,
+          "name": "Operating System Version",
+          "operator": "greater than or equal",
+          "value": "10.15",
+          "type": "recon"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "version": "4.14.2",
+      "releaseDate": "2026-01-14T00:00:00Z",
+      "standalone": true,
+      "minimumOperatingSystem": "10.15",
+      "reboot": false,
+      "killApps": [],
+      "components": [
+        {
+          "name": "Wazuh Agent",
+          "version": "4.14.2",
+          "criteria": [
+            {
+              "and": true,
+              "name": "wazuh-agent-version",
+              "operator": "is",
+              "value": "4.14.2",
+              "type": "extensionAttribute"
+            }
+          ]
+        }
+      ],
+      "capabilities": [
+        {
+          "and": true,
+          "name": "Operating System Version",
+          "operator": "greater than or equal",
+          "value": "10.15",
+          "type": "recon"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "version": "4.14.1",
+      "releaseDate": "2025-11-12T00:00:00Z",
+      "standalone": true,
+      "minimumOperatingSystem": "10.15",
+      "reboot": false,
+      "killApps": [],
+      "components": [
+        {
+          "name": "Wazuh Agent",
+          "version": "4.14.1",
+          "criteria": [
+            {
+              "and": true,
+              "name": "wazuh-agent-version",
+              "operator": "is",
+              "value": "4.14.1",
+              "type": "extensionAttribute"
+            }
+          ]
+        }
+      ],
+      "capabilities": [
+        {
+          "and": true,
+          "name": "Operating System Version",
+          "operator": "greater than or equal",
+          "value": "10.15",
+          "type": "recon"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "version": "4.14.0",
+      "releaseDate": "2025-10-23T00:00:00Z",
+      "standalone": true,
+      "minimumOperatingSystem": "10.15",
+      "reboot": false,
+      "killApps": [],
+      "components": [
+        {
+          "name": "Wazuh Agent",
+          "version": "4.14.0",
+          "criteria": [
+            {
+              "and": true,
+              "name": "wazuh-agent-version",
+              "operator": "is",
+              "value": "4.14.0",
+              "type": "extensionAttribute"
+            }
+          ]
+        }
+      ],
+      "capabilities": [
+        {
+          "and": true,
+          "name": "Operating System Version",
+          "operator": "greater than or equal",
+          "value": "10.15",
+          "type": "recon"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "version": "4.13.1",
+      "releaseDate": "2025-09-24T00:00:00Z",
+      "standalone": true,
+      "minimumOperatingSystem": "10.15",
+      "reboot": false,
+      "killApps": [],
+      "components": [
+        {
+          "name": "Wazuh Agent",
+          "version": "4.13.1",
+          "criteria": [
+            {
+              "and": true,
+              "name": "wazuh-agent-version",
+              "operator": "is",
+              "value": "4.13.1",
+              "type": "extensionAttribute"
+            }
+          ]
+        }
+      ],
+      "capabilities": [
+        {
+          "and": true,
+          "name": "Operating System Version",
+          "operator": "greater than or equal",
+          "value": "10.15",
+          "type": "recon"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "version": "4.13.0",
+      "releaseDate": "2025-09-18T00:00:00Z",
+      "standalone": true,
+      "minimumOperatingSystem": "10.15",
+      "reboot": false,
+      "killApps": [],
+      "components": [
+        {
+          "name": "Wazuh Agent",
+          "version": "4.13.0",
+          "criteria": [
+            {
+              "and": true,
+              "name": "wazuh-agent-version",
+              "operator": "is",
+              "value": "4.13.0",
+              "type": "extensionAttribute"
+            }
+          ]
+        }
+      ],
+      "capabilities": [
+        {
+          "and": true,
+          "name": "Operating System Version",
+          "operator": "greater than or equal",
+          "value": "10.15",
+          "type": "recon"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "version": "4.12.0",
+      "releaseDate": "2025-05-07T00:00:00Z",
+      "standalone": true,
+      "minimumOperatingSystem": "10.15",
+      "reboot": false,
+      "killApps": [],
+      "components": [
+        {
+          "name": "Wazuh Agent",
+          "version": "4.12.0",
+          "criteria": [
+            {
+              "and": true,
+              "name": "wazuh-agent-version",
+              "operator": "is",
+              "value": "4.12.0",
+              "type": "extensionAttribute"
+            }
+          ]
+        }
+      ],
+      "capabilities": [
+        {
+          "and": true,
+          "name": "Operating System Version",
+          "operator": "greater than or equal",
+          "value": "10.15",
+          "type": "recon"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "version": "4.11.2",
+      "releaseDate": "2025-04-01T00:00:00Z",
+      "standalone": true,
+      "minimumOperatingSystem": "10.15",
+      "reboot": false,
+      "killApps": [],
+      "components": [
+        {
+          "name": "Wazuh Agent",
+          "version": "4.11.2",
+          "criteria": [
+            {
+              "and": true,
+              "name": "wazuh-agent-version",
+              "operator": "is",
+              "value": "4.11.2",
+              "type": "extensionAttribute"
+            }
+          ]
+        }
+      ],
+      "capabilities": [
+        {
+          "and": true,
+          "name": "Operating System Version",
+          "operator": "greater than or equal",
+          "value": "10.15",
+          "type": "recon"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "version": "4.11.1",
+      "releaseDate": "2025-03-12T00:00:00Z",
+      "standalone": true,
+      "minimumOperatingSystem": "10.15",
+      "reboot": false,
+      "killApps": [],
+      "components": [
+        {
+          "name": "Wazuh Agent",
+          "version": "4.11.1",
+          "criteria": [
+            {
+              "and": true,
+              "name": "wazuh-agent-version",
+              "operator": "is",
+              "value": "4.11.1",
+              "type": "extensionAttribute"
+            }
+          ]
+        }
+      ],
+      "capabilities": [
+        {
+          "and": true,
+          "name": "Operating System Version",
+          "operator": "greater than or equal",
+          "value": "10.15",
+          "type": "recon"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "version": "4.11.0",
+      "releaseDate": "2025-02-20T00:00:00Z",
+      "standalone": true,
+      "minimumOperatingSystem": "10.15",
+      "reboot": false,
+      "killApps": [],
+      "components": [
+        {
+          "name": "Wazuh Agent",
+          "version": "4.11.0",
+          "criteria": [
+            {
+              "and": true,
+              "name": "wazuh-agent-version",
+              "operator": "is",
+              "value": "4.11.0",
+              "type": "extensionAttribute"
+            }
+          ]
+        }
+      ],
+      "capabilities": [
+        {
+          "and": true,
+          "name": "Operating System Version",
+          "operator": "greater than or equal",
+          "value": "10.15",
+          "type": "recon"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "version": "4.10.2",
+      "releaseDate": "2025-05-22T00:00:00Z",
+      "standalone": true,
+      "minimumOperatingSystem": "10.15",
+      "reboot": false,
+      "killApps": [],
+      "components": [
+        {
+          "name": "Wazuh Agent",
+          "version": "4.10.2",
+          "criteria": [
+            {
+              "and": true,
+              "name": "wazuh-agent-version",
+              "operator": "is",
+              "value": "4.10.2",
+              "type": "extensionAttribute"
+            }
+          ]
+        }
+      ],
+      "capabilities": [
+        {
+          "and": true,
+          "name": "Operating System Version",
+          "operator": "greater than or equal",
+          "value": "10.15",
+          "type": "recon"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "version": "4.10.1",
+      "releaseDate": "2025-01-16T00:00:00Z",
+      "standalone": true,
+      "minimumOperatingSystem": "10.15",
+      "reboot": false,
+      "killApps": [],
+      "components": [
+        {
+          "name": "Wazuh Agent",
+          "version": "4.10.1",
+          "criteria": [
+            {
+              "and": true,
+              "name": "wazuh-agent-version",
+              "operator": "is",
+              "value": "4.10.1",
+              "type": "extensionAttribute"
+            }
+          ]
+        }
+      ],
+      "capabilities": [
+        {
+          "and": true,
+          "name": "Operating System Version",
+          "operator": "greater than or equal",
+          "value": "10.15",
+          "type": "recon"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "version": "4.10.0",
+      "releaseDate": "2025-01-09T00:00:00Z",
+      "standalone": true,
+      "minimumOperatingSystem": "10.15",
+      "reboot": false,
+      "killApps": [],
+      "components": [
+        {
+          "name": "Wazuh Agent",
+          "version": "4.10.0",
+          "criteria": [
+            {
+              "and": true,
+              "name": "wazuh-agent-version",
+              "operator": "is",
+              "value": "4.10.0",
+              "type": "extensionAttribute"
+            }
+          ]
+        }
+      ],
+      "capabilities": [
+        {
+          "and": true,
+          "name": "Operating System Version",
+          "operator": "greater than or equal",
+          "value": "10.15",
+          "type": "recon"
+        }
+      ],
+      "dependencies": []
+    }
+  ],
+  "extensionAttributes": [
+    {
+      "key": "wazuh-agent-version",
+      "displayName": "Wazuh Agent Version",
+      "value": "IyEvYmluL2Jhc2gKCldBWlVIX0NPTlRST0w9Ii9MaWJyYXJ5L09zc2VjL2Jpbi93YXp1aC1jb250cm9sIgpPU1NFQ19JTklUPSIvTGlicmFyeS9Pc3NlYy9ldGMvb3NzZWMtaW5pdC5jb25mIgoKaWYgWyAteCAiJFdBWlVIX0NPTlRST0wiIF07IHRoZW4KICAgIHZlcnNpb249JCgiJFdBWlVIX0NPTlRST0wiIGluZm8gLXYgMj4vZGV2L251bGwgfCBzZWQgJ3MvXnYvLycpCmVsaWYgWyAtZiAiJE9TU0VDX0lOSVQiIF07IHRoZW4KICAgIHZlcnNpb249JChhd2sgLUYnIicgJy9WRVJTSU9OLyB7cHJpbnQgJDJ9JyAiJE9TU0VDX0lOSVQiIHwgc2VkICdzL152Ly8nKQpmaQoKaWYgWyAtbiAiJHZlcnNpb24iIF07IHRoZW4KICAgIGVjaG8gIjxyZXN1bHQ+JHZlcnNpb248L3Jlc3VsdD4iCmVsc2UKICAgIGVjaG8gIjxyZXN1bHQ+Tm90IEluc3RhbGxlZDwvcmVzdWx0PiIKZmk="
+    }
+  ]
+}

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Patch Server</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #0f1419;
+        --fg: #e7e9ea;
+        --muted: #8b98a5;
+        --accent: #1d9bf0;
+        --card: #16181c;
+        --border: #2f3336;
+        --ok: #00ba7c;
+        --bad: #f4212e;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+          sans-serif;
+        line-height: 1.5;
+      }
+      @media (prefers-color-scheme: light) {
+        :root {
+          --bg: #f7f9f9;
+          --fg: #0f1419;
+          --muted: #536471;
+          --card: #ffffff;
+          --border: #cfd9de;
+          --ok: #00875a;
+          --bad: #d0121e;
+        }
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem 1rem;
+        background: var(--bg);
+        color: var(--fg);
+      }
+      main {
+        width: 100%;
+        max-width: 40rem;
+        padding: 2rem;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: var(--card);
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+      }
+      @media (max-width: 480px) {
+        main {
+          padding: 1.25rem;
+        }
+      }
+      h1 {
+        margin: 0 0 0.5rem;
+        font-size: 1.375rem;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+      }
+      h2 {
+        margin: 1.75rem 0 0.5rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--muted);
+      }
+      p {
+        margin: 0 0 1rem;
+        color: var(--muted);
+        font-size: 0.9375rem;
+      }
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      code,
+      .mono {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          monospace;
+        font-size: 0.8125rem;
+      }
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+        font-size: 0.8125rem;
+        font-weight: 500;
+        color: var(--muted);
+      }
+      .status::before,
+      .dot {
+        content: "";
+        flex: none;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: currentColor;
+        box-shadow: 0 0 0 3px color-mix(in srgb, currentColor 25%, transparent);
+      }
+      .ok {
+        color: var(--ok);
+      }
+      .bad {
+        color: var(--bad);
+      }
+      .panel {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--bg);
+        overflow: hidden;
+      }
+      .panel > li,
+      .panel > div {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.625rem 1rem;
+        font-size: 0.875rem;
+      }
+      .panel > * + * {
+        border-top: 1px solid var(--border);
+      }
+      .grow {
+        flex: 1;
+        min-width: 0;
+        overflow-wrap: anywhere;
+      }
+      .meta {
+        color: var(--muted);
+        font-size: 0.8125rem;
+        text-align: right;
+        white-space: nowrap;
+      }
+      dl.panel {
+        display: grid;
+        grid-template-columns: auto 1fr;
+      }
+      dl.panel dt,
+      dl.panel dd {
+        margin: 0;
+        padding: 0.625rem 1rem;
+        font-size: 0.875rem;
+      }
+      dl.panel dt {
+        color: var(--muted);
+      }
+      dl.panel dd {
+        overflow-wrap: anywhere;
+      }
+      dl.panel dt:not(:first-of-type),
+      dl.panel dd:not(:first-of-type) {
+        border-top: 1px solid var(--border);
+      }
+      .title-name {
+        font-weight: 500;
+      }
+      .title-sub {
+        display: block;
+        color: var(--muted);
+        font-size: 0.8125rem;
+      }
+      .empty {
+        color: var(--muted);
+      }
+      .hint {
+        margin: 0.75rem 0 0;
+        font-size: 0.8125rem;
+      }
+      footer {
+        margin-top: 1.5rem;
+        color: var(--muted);
+        font-size: 0.8125rem;
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      footer > :last-child {
+        text-align: right;
+      }
+      @media (max-width: 480px) {
+        footer {
+          grid-template-columns: 1fr;
+          justify-items: center;
+        }
+        footer > :last-child {
+          text-align: center;
+        }
+      }
+      .source {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.375rem;
+        color: var(--muted);
+      }
+      .source:hover {
+        color: var(--fg);
+      }
+      .source svg {
+        width: 16px;
+        height: 16px;
+        fill: currentColor;
+      }
+      button {
+        font: inherit;
+        color: var(--accent);
+        background: none;
+        border: 0;
+        padding: 0;
+        cursor: pointer;
+      }
+      button:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="status" id="status">Checking service…</div>
+      <h1>Patch Server</h1>
+      <p id="summary">
+        An external patch source for Jamf Pro, serving custom software title
+        patch definitions.
+      </p>
+
+      <h2>Jamf Pro setup</h2>
+      <dl class="panel">
+        <dt>Server</dt>
+        <dd class="mono" id="host"></dd>
+        <dt>Port</dt>
+        <dd class="mono">443</dd>
+        <dt>Use SSL</dt>
+        <dd>Yes</dd>
+      </dl>
+      <p class="hint">
+        Enter these values in Jamf Pro by following
+        <a
+          href="https://learn.jamf.com/r/en-US/jamf-pro-documentation-current/Adding_a_Patch_External_Source_to_Jamf_Pro"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Adding a Patch External Source to Jamf Pro&nbsp;↗</a
+        >
+      </p>
+
+      <h2>Endpoint check</h2>
+      <ul class="panel" id="checks"></ul>
+
+      <h2>Software titles</h2>
+      <ul class="panel" id="titles">
+        <li class="empty">Loading…</li>
+      </ul>
+
+      <footer>
+        <span id="built"></span>
+        <a
+          class="source"
+          href="https://github.com/jeremy4971/SimplePatchServer-Netlify"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Source on GitHub"
+        >
+          <svg viewBox="0 0 16 16" aria-hidden="true">
+            <path
+              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+            />
+          </svg>
+          Source
+        </a>
+        <span id="checked"></span>
+      </footer>
+    </main>
+    <script>
+      const $ = (id) => document.getElementById(id);
+
+      function el(tag, attrs, ...children) {
+        const node = document.createElement(tag);
+        Object.assign(node, attrs);
+        node.append(...children);
+        return node;
+      }
+
+      function formatDate(value) {
+        const date = new Date(value);
+        return isNaN(date)
+          ? String(value)
+          : date.toLocaleString(undefined, {
+              dateStyle: "medium",
+              timeStyle: "short",
+            });
+      }
+
+      // Request a path the way Jamf Pro would and report whether it looks right.
+      async function check(path) {
+        const started = performance.now();
+        try {
+          const resp = await fetch(path, { cache: "no-store" });
+          const ms = Math.round(performance.now() - started);
+          const isJson = (resp.headers.get("content-type") || "").includes(
+            "application/json"
+          );
+          const body = isJson ? await resp.json() : null;
+          return { path, ok: resp.ok && isJson, code: resp.status, ms, body };
+        } catch (error) {
+          return { path, ok: false, code: "error", ms: null, body: null };
+        }
+      }
+
+      function renderCheck(result) {
+        const detail = result.ms === null
+          ? "unreachable"
+          : `${result.code} · ${result.ms} ms`;
+        return el(
+          "li",
+          {},
+          el("span", { className: `dot ${result.ok ? "ok" : "bad"}` }),
+          el(
+            "a",
+            { className: "grow mono", href: result.path, target: "_blank" },
+            result.path
+          ),
+          el("span", { className: "meta" }, detail)
+        );
+      }
+
+      function renderTitle(title) {
+        return el(
+          "li",
+          {},
+          el(
+            "span",
+            { className: "grow" },
+            el("span", { className: "title-name" }, title.name),
+            el(
+              "span",
+              { className: "title-sub" },
+              el(
+                "a",
+                {
+                  className: "mono",
+                  href: `/patch/${encodeURIComponent(title.id)}`,
+                  target: "_blank",
+                },
+                title.id
+              ),
+              ` · ${title.publisher}`
+            )
+          ),
+          el(
+            "span",
+            { className: "meta" },
+            el("span", { className: "mono" }, title.currentVersion),
+            el("span", { className: "title-sub" }, formatDate(title.lastModified))
+          )
+        );
+      }
+
+      function setStatus(kind, text) {
+        const status = $("status");
+        status.className = `status ${kind}`;
+        status.textContent = text;
+      }
+
+      async function run() {
+        setStatus("", "Checking service…");
+        $("checked").textContent = "";
+
+        const software = await check("/software");
+        const titles = Array.isArray(software.body) ? software.body : [];
+
+        $("checks").replaceChildren(renderCheck(software));
+
+        $("titles").replaceChildren(
+          ...(titles.length
+            ? titles.map(renderTitle)
+            : [el("li", { className: "empty" }, "No software titles yet.")])
+        );
+
+        const count = `${titles.length} software title${titles.length === 1 ? "" : "s"}`;
+        $("summary").textContent =
+          `An external patch source for Jamf Pro, serving ${count}.`;
+
+        if (software.ok) {
+          setStatus("ok", "Service operational");
+        } else {
+          setStatus("bad", "Service unavailable");
+        }
+
+        const checkedAt = el(
+          "span",
+          {},
+          `Checked ${new Date().toLocaleTimeString()} · `
+        );
+        checkedAt.append(el("button", { type: "button", onclick: run }, "Re-check"));
+        $("checked").replaceChildren(checkedAt);
+      }
+
+      async function loadBuildInfo() {
+        try {
+          const resp = await fetch("/status.json", { cache: "no-store" });
+          const info = await resp.json();
+          $("built").textContent =
+            `Last built ${formatDate(info.builtAt)}`;
+        } catch (error) {
+          $("built").textContent = "";
+        }
+      }
+
+      $("host").textContent = location.host;
+      run();
+      loadBuildInfo();
+    </script>
+  </body>
+</html>

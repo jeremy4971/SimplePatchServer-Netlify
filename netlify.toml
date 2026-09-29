@@ -1,0 +1,18 @@
+[build]
+  command = "pip install -r requirements.txt && python scripts/build.py"
+  publish = "public"
+
+[build.environment]
+  PYTHON_VERSION = "3.12"
+
+# Jamf Pro requests extensionless paths; serve the generated .json files.
+# (/software/<ids> is handled by netlify/edge-functions/software-filter.js)
+[[redirects]]
+  from = "/software"
+  to = "/software.json"
+  status = 200
+
+[[redirects]]
+  from = "/patch/*"
+  to = "/patch/:splat.json"
+  status = 200
