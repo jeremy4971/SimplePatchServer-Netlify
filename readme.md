@@ -1,5 +1,5 @@
 ## Simple Patch Server · Netlify Edition
-[![Github](https://img.shields.io/badge/fable%20%20%C2%B7%20semgrep-passing-00875A)](https://github.com/jeremy4971/sumb_public?tab=security-ov-file#security-practices)
+[![Github](https://img.shields.io/badge/fable%20%20%C2%B7%20semgrep-passing-00875A)](https://github.com/jeremy4971/SimplePatchServer-Netlify)
 
 A serverless Patch Server for Jamf Pro.
 
