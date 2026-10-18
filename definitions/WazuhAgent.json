@@ -3,8 +3,8 @@
   "publisher": "Wazuh, Inc.",
   "appName": "Wazuh Agent",
   "bundleId": "com.wazuh.agent",
-  "lastModified": "2026-09-28T20:38:44Z",
-  "currentVersion": "4.14.8",
+  "lastModified": "2026-10-18T17:39:17Z",
+  "currentVersion": "4.14.9",
   "id": "WazuhAgent",
   "requirements": [
     {
@@ -16,6 +16,39 @@
     }
   ],
   "patches": [
+    {
+      "version": "4.14.9",
+      "releaseDate": "2026-10-15T00:00:00Z",
+      "standalone": true,
+      "minimumOperatingSystem": "10.15",
+      "reboot": false,
+      "killApps": [],
+      "components": [
+        {
+          "name": "Wazuh Agent",
+          "version": "4.14.9",
+          "criteria": [
+            {
+              "and": true,
+              "name": "wazuh-agent-version",
+              "operator": "is",
+              "value": "4.14.9",
+              "type": "extensionAttribute"
+            }
+          ]
+        }
+      ],
+      "capabilities": [
+        {
+          "and": true,
+          "name": "Operating System Version",
+          "operator": "greater than or equal",
+          "value": "10.15",
+          "type": "recon"
+        }
+      ],
+      "dependencies": []
+    },
     {
       "version": "4.14.8",
       "releaseDate": "2026-09-25T00:00:00Z",
